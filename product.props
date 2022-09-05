@@ -1,0 +1,11 @@
+<Project>
+
+  <PropertyGroup>
+
+    <Product>Text analyzer</Product> 
+    <Description>
+		Analyzer of text. 
+	</Description>
+  </PropertyGroup> 
+
+</Project>
