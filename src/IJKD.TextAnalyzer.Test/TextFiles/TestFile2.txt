@@ -1,3 +1,0 @@
-A constant desire to keep code as clear and simple as possible
-sd
-
