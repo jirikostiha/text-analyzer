@@ -1,4 +1,4 @@
-﻿namespace IJKD.TextAnalyzer.Test
+﻿namespace TextAnalyzer.Test
 {
     using BusinessLogic;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

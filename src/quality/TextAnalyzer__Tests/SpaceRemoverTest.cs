@@ -1,4 +1,4 @@
-﻿namespace IJKD.TextAnalyzer.Test
+﻿namespace TextAnalyzer.Test
 {
     using System.Text;
     using BusinessLogic;
