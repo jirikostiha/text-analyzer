@@ -14,9 +14,6 @@
 
         public void Run(string inputFile, string outputFile)
         {
-            inputFile.NotNull().NotEmpty();
-            outputFile.NotNull().NotEmpty();
-
             var tuple = new Tuple<string, string>(inputFile, outputFile);
 
             InitializeBackgroundWorker();

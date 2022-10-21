@@ -12,7 +12,7 @@
         #region ctors
         public TextProcessorView(TextProcessorController controller)
         {
-            controller.NotNull();
+            //controller.NotNull();
 
             controller.View = this;
             Controller = controller;

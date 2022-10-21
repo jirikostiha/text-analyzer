@@ -212,35 +212,12 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic\convertors\ICharacterConverter.cs" />
-    <Compile Include="BusinessLogic\convertors\CharacterConverter.cs" />
-    <Compile Include="BusinessLogic\modificators\EmptyLineRemover.cs" />
-    <Compile Include="BusinessLogic\modificators\DiacriticRemover.cs" />
-    <Compile Include="BusinessLogic\modificators\PunctationRemover.cs" />
-    <Compile Include="BusinessLogic\modificators\ICharacterModificator.cs" />
-    <Compile Include="BusinessLogic\modificators\SpaceRemover.cs" />
-    <Compile Include="BusinessLogic\counters\SentenceCounter.cs" />
-    <Compile Include="BusinessLogic\counters\IPatternCounter.cs" />
-    <Compile Include="BusinessLogic\counters\DigitCounter.cs" />
-    <Compile Include="BusinessLogic\counters\ISymbolCounter.cs" />
-    <Compile Include="BusinessLogic\counters\PrintableCharCounter.cs" />
-    <Compile Include="BusinessLogic\counters\LineBreakCounter.cs" />
-    <Compile Include="BusinessLogic\analyzers\AnalysisResult.cs" />
-    <Compile Include="BusinessLogic\counters\WordCounter.cs" />
-    <Compile Include="BusinessLogic\runner\Runner.cs" />
-    <Compile Include="BusinessLogic\textProccessor\ITextProcessor.cs" />
-    <Compile Include="BusinessLogic\textProccessor\OnePassTextProccess.cs" />
-    <Compile Include="common\StringExtension.cs" />
-    <Compile Include="common\ValueContract.cs" />
     <Compile Include="Exceptions\formaters\ExceptionFormatter.cs" />
     <Compile Include="Exceptions\formaters\IExceptionFormatter.cs" />
     <Compile Include="Exceptions\handlers\IExceptionHandler.cs" />
     <Compile Include="Exceptions\handlers\ProductionExceptionHandler.cs" />
     <Compile Include="Exceptions\helpers\ExceptionHelper.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="BusinessLogic\analyzers\Analyzer.cs" />
-    <Compile Include="BusinessLogic\analyzers\IContinousAnalyzer.cs" />
-    <Compile Include="common\IResetable.cs" />
     <Compile Include="Exceptions\handlers\DebugExceptionHandler.cs" />
     <Compile Include="Exceptions\UIException.cs" />
     <Compile Include="helpers\FileHelper.cs" />
