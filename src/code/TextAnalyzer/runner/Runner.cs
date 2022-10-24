@@ -7,7 +7,7 @@
     /// <summary>
     /// Responsible for handling amount of data for processing in one batch operation.
     /// </summary>
-    public class Runner : IEnumerator<string>, IResetable
+    public class Runner : IEnumerator<string?>, IResetable
     {
         private const int DefaultBatchSize = 4096;
 
@@ -64,7 +64,10 @@
             var length = nextPosition < InputData.Length ? BatchSize : InputData.Length - Position;
 
             if (length == 0)
+            {
+                Current = null;
                 return false;
+            }
 
             // gets data block
             var block = InputData.Substring(Position, length);
@@ -88,9 +91,9 @@
             Position = 0;
         }
 
-        public string Current { get; private set; }
+        public string? Current { get; private set; }
 
-        object IEnumerator.Current
+        object? IEnumerator.Current
         {
             get { return Current; }
         }
