@@ -3,4 +3,5 @@
 </div>  
 
 # Text Analyzer
+![Build workflow](https://github.com/jirikostiha/text-analyzer/actions/workflows/desktop_build.yml/badge.svg)  
 It's a demonstration project.  
