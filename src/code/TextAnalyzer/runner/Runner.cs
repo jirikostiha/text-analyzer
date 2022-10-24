@@ -63,6 +63,9 @@
             // length of next block
             var length = nextPosition < InputData.Length ? BatchSize : InputData.Length - Position;
 
+            if (length == 0)
+                return false;
+
             // gets data block
             var block = InputData.Substring(Position, length);
 

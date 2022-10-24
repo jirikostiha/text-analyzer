@@ -90,6 +90,7 @@
             this.tbInputFilePath.Size = new System.Drawing.Size(446, 20);
             this.tbInputFilePath.TabIndex = 10;
             this.ToolTip.SetToolTip(this.tbInputFilePath, "Speify text file you want to proccess.");
+            this.tbInputFilePath.TextChanged += new System.EventHandler(this.tbInputFilePath_TextChanged);
             // 
             // btnRun
             // 
@@ -171,6 +172,7 @@
             this.tbOutputFilePath.Size = new System.Drawing.Size(446, 20);
             this.tbOutputFilePath.TabIndex = 30;
             this.ToolTip.SetToolTip(this.tbOutputFilePath, "Speify text file where you want to save proccessed text.");
+            this.tbOutputFilePath.TextChanged += new System.EventHandler(this.tbOutputFilePath_TextChanged);
             // 
             // lblOutputFile
             // 

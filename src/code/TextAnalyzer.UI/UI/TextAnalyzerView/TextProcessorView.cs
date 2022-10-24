@@ -2,6 +2,7 @@
 {
     using System;
     using System.Globalization;
+    using System.IO;
     using System.Windows.Forms;
 
     public partial class TextProcessorView : Form, ITextProcessorView
@@ -11,22 +12,29 @@
         #region ctors
         public TextProcessorView(TextProcessorController controller)
         {
-            //controller.NotNull();
+            controller.NotNull();
 
             controller.View = this;
             Controller = controller;
             InitializeComponent();
             Reset();
+            RefreshControllingControls();
         }
         #endregion
 
         public TextProcessorController Controller { get; private set; }
 
-        #region Methods - public
         public void Refresh(int percentage, AnalysisResult result)
         {
             pbProgress.Value = percentage;
-            ShowAnalyzedDataCounters(result);
+            if (result == null) // in case of no inputs
+            {
+                RefreshControllingControls();
+
+                return;
+            }
+
+            ShowAnalysisResults(result);
 
             if (percentage >= 100)
             {
@@ -34,9 +42,7 @@
                 lblStatus.Text = Resources.infoFinished;
                 pbProgress.Value = percentage;
                 ShowFinalAnalysisResult(result);
-
-                btnRun.Enabled = true;
-                btnStop.Enabled = false;
+                RefreshControllingControls();
             }
         }
 
@@ -45,8 +51,8 @@
             lblStatus.Text = Resources.infoStopped;
             btnRun.Enabled = true;
             Reset();
+            RefreshControllingControls();
         }
-        #endregion
 
         #region Event handlers - controls
         private void btnInpputFileBrowse_Click(object sender, EventArgs e)
@@ -56,7 +62,21 @@
             if (result == DialogResult.OK)
             {
                 tbInputFilePath.Text = ofdOpenInputFile.FileName;
+                if (string.IsNullOrEmpty(tbOutputFilePath.Text))
+                {
+                    var sugestedOutputFilePath = Path.Combine(
+                        Path.GetDirectoryName(tbInputFilePath.Text),
+                        Path.GetFileNameWithoutExtension(ofdOpenInputFile.FileName) + "_output");
+                    sugestedOutputFilePath += $".{Path.GetExtension(ofdOpenInputFile.FileName)}";
+                    
+                    tbOutputFilePath.Text = sugestedOutputFilePath;
+                }
             }
+        }
+
+        private void tbInputFilePath_TextChanged(object sender, EventArgs e)
+        {
+            RefreshControllingControls();
         }
 
         private void btnOutputFileBrowse_Click(object sender, EventArgs e)
@@ -69,10 +89,14 @@
             }
         }
 
+        private void tbOutputFilePath_TextChanged(object sender, EventArgs e)
+        {
+            RefreshControllingControls();
+        }
+
         private void btnRun_Click(object sender, EventArgs e)
         {
-            btnRun.Enabled = false;
-            btnStop.Enabled = true;
+            RefreshControllingControls(true);
 
             Reset();
             lblStatus.Text = Resources.infoAnalyzing;
@@ -83,16 +107,33 @@
         private void btnStop_Click(object sender, EventArgs e)
         {
             Controller.Stop();
+            RefreshControllingControls(false);
         }
         #endregion
 
         #region Methods - private
-        private void ShowFinalAnalysisResult(AnalysisResult result)
+
+        private void RefreshControllingControls(bool running = false)
         {
-            ShowAnalyzedDataCounters(result);
+            tbInputFilePath.Enabled = !running;
+            btnInputFileBrowse.Enabled = !running;
+            tbOutputFilePath.Enabled = !running;
+            btnOutputFileBrowse.Enabled = !running;
+
+            btnRun.Enabled =
+                !running
+                && !string.IsNullOrEmpty(tbInputFilePath.Text)
+                && !string.IsNullOrEmpty(tbOutputFilePath.Text);
+
+            btnStop.Enabled = running;
         }
 
-        private void ShowAnalyzedDataCounters(AnalysisResult result)
+        private void ShowFinalAnalysisResult(AnalysisResult result)
+        {
+            ShowAnalysisResults(result);
+        }
+
+        private void ShowAnalysisResults(AnalysisResult result)
         {
             lblChars.Text = result.CharCount.ToString(CultureInfo.InvariantCulture);
             lblWords.Text = result.WordCount.ToString(CultureInfo.InvariantCulture);

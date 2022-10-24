@@ -21,7 +21,8 @@
 
         public void Stop()
         {
-            Worker.CancelAsync();
+            if (Worker != null)
+                Worker.CancelAsync();
         }
 
         #region private methods
@@ -76,7 +77,8 @@
         private AnalysisResult ProcessFile(BackgroundWorker worker, DoWorkEventArgs e)
         {
             var fileTuple = e.Argument as Tuple<string, string>;
-            if (fileTuple == null) return null;
+            if (string.IsNullOrEmpty(fileTuple.Item1)) 
+                return null;
 
             var inputFilePath = fileTuple.Item1;
             var outputFilePath = fileTuple.Item2;
@@ -142,6 +144,10 @@
             {
                 // report finish
                 View.Refresh(100, result);
+            }
+            else
+            {
+                View.Refresh(0, null);
             }
         }
         
