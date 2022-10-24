@@ -50,5 +50,52 @@ namespace TextAnalyzer
             if (Analyzer != null) Analyzer.Reset();
             _builder = null;
         }
+
+        #region static
+
+        public static OnePassTextProcessor Create(OnePassTextProcessorOptions options)
+        {
+            var analyzer = new Analyzer();
+            if (options.Analysis is not null)
+            {
+                if (options.Analysis.CountLineBreaks)
+                    analyzer.LineBreakCounter = new LineBreakCounter();
+
+                if (options.Analysis.CountPrintableChars)
+                    analyzer.PrintableCharCounter = new PrintableCharCounter();
+
+                if (options.Analysis.CountWords)
+                    analyzer.WordCounter = new WordCounter();
+
+                if (options.Analysis.CountSentence)
+                    analyzer.SentenceCounter = new SentenceCounter();
+            }
+
+            var converter = new CharacterConverter();
+            if (options.Modifications is not null)
+            {
+                if (options.Modifications.RemovePunctation)
+                    converter.Modificators.Add(new PunctationRemover());
+
+                if (options.Modifications.RemoveEmptyLines)
+                    converter.Modificators.Add(new EmptyLineRemover());
+
+                if (options.Modifications.RemoveDiacritic)
+                    converter.Modificators.Add(new DiacriticRemover());
+
+                if (options.Modifications.RemoveSpaces)
+                    converter.Modificators.Add(new SpaceRemover());
+            }
+
+            var processor = new OnePassTextProcessor()
+            {
+                Analyzer = analyzer,
+                Converter = converter
+            };
+
+            return processor;
+        }
+
+        #endregion
     }
 }
