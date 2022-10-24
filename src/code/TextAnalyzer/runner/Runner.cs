@@ -45,7 +45,7 @@
             get { return _batchSize; }
             set
             {
-                value.LessThan(1, "Amount of batch data size cannot be less than one");
+                value.GreaterThan(1, "Amount of batch data size cannot be less than one");
                 _batchSize = value;
             }
         }
