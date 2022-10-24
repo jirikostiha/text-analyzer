@@ -107,7 +107,6 @@
         private void btnStop_Click(object sender, EventArgs e)
         {
             Controller.Stop();
-            RefreshControllingControls(false);
         }
         #endregion
 
