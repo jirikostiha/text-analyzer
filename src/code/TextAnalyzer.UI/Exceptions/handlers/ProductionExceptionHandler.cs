@@ -1,7 +1,6 @@
-﻿namespace TextAnalyzer.Exceptions
+﻿namespace TextAnalyzer.UI.Exceptions
 {
     using System;
-    using UI.helpers;
 
     public class ProductionExceptionHandler : IExceptionHandler
     {
@@ -18,7 +17,7 @@
         public void HandleUnhandledException(object sender, Exception exception)
         {
             var message = string.Format("{0}\n\nDetails:\n{1}",
-                Properties.Resources.errUnknownError,
+                Resources.errUnknownError,
                 exception.Message);
 
             DialogHelper.ShowUnhandledExceptionMessage(message);

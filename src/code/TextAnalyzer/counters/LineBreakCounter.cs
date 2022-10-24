@@ -1,4 +1,4 @@
-namespace TextAnalyzer.BusinessLogic
+namespace TextAnalyzer
 {
     public class LineBreakCounter : ISymbolCounter
     {

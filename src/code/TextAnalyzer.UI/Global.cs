@@ -1,4 +1,4 @@
-﻿namespace TextAnalyzer
+﻿namespace TextAnalyzer.UI
 {
     public class Global
     {

@@ -1,6 +1,5 @@
 ﻿namespace TextAnalyzer.Test
 {
-    using BusinessLogic;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass()]

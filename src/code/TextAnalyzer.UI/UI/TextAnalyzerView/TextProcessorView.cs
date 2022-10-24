@@ -3,7 +3,6 @@
     using System;
     using System.Globalization;
     using System.Windows.Forms;
-    using BusinessLogic;
 
     public partial class TextProcessorView : Form, ITextProcessorView
     {
@@ -32,7 +31,7 @@
             if (percentage >= 100)
             {
                 // handle finish state
-                lblStatus.Text = Properties.Resources.infoFinished;
+                lblStatus.Text = Resources.infoFinished;
                 pbProgress.Value = percentage;
                 ShowFinalAnalysisResult(result);
 
@@ -43,7 +42,7 @@
 
         public void WorkStopped()
         {
-            lblStatus.Text = Properties.Resources.infoStopped;
+            lblStatus.Text = Resources.infoStopped;
             btnRun.Enabled = true;
             Reset();
         }
@@ -76,7 +75,7 @@
             btnStop.Enabled = true;
 
             Reset();
-            lblStatus.Text = Properties.Resources.infoAnalyzing;
+            lblStatus.Text = Resources.infoAnalyzing;
 
             Controller.Run(tbInputFilePath.Text, tbOutputFilePath.Text);
         }

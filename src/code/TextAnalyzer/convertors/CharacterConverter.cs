@@ -1,4 +1,4 @@
-namespace TextAnalyzer.BusinessLogic
+namespace TextAnalyzer
 {
     using System.Collections.Generic;
 

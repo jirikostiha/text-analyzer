@@ -1,7 +1,7 @@
-﻿namespace TextAnalyzer.Exceptions
+﻿namespace TextAnalyzer.UI.Exceptions
 {
     using System;
-    using UI.helpers;
+    using TextAnalyzer.Exceptions;
 
     public class DebugExceptionHandler : IExceptionHandler
     {
@@ -23,7 +23,7 @@
             var formatter = new ExceptionFormatter();
             var formattedException = formatter.Format(exception);
             var message = string.Format("{0}\n\nDetails:\n{1}", 
-                Properties.Resources.errUnknownError, 
+                Resources.errUnknownError, 
                 formattedException);
 
             DialogHelper.ShowUnhandledExceptionMessage(message);

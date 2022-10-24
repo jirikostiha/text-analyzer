@@ -1,10 +1,10 @@
-namespace TextAnalyzer.BusinessLogic
+namespace TextAnalyzer
 {
     using System.Text;
 
     public class OnePassTextProcessor : ITextProcessor, IResetable
     {
-        private StringBuilder _builder;
+        private StringBuilder? _builder;
 
         public OnePassTextProcessor()
         {

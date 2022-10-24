@@ -1,5 +1,7 @@
-namespace TextAnalyzer.BusinessLogic
+namespace TextAnalyzer
 {
+    using System.Globalization;
+
     /// <summary>
     /// Removes spaces and returns CameCased words.
     /// </summary>
@@ -24,12 +26,12 @@ namespace TextAnalyzer.BusinessLogic
                     if (WasLetterOrDigit)
                     {
                         WasLetterOrDigit = true;
-                        return char.ToLower(character);
+                        return char.ToLower(character, CultureInfo.CurrentUICulture);
                     }
                     else
                     {
                         WasLetterOrDigit = true;
-                        return char.ToUpper(character);
+                        return char.ToUpper(character, CultureInfo.CurrentUICulture);
                     }
                 }
             }

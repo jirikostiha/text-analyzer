@@ -1,4 +1,4 @@
-namespace TextAnalyzer.BusinessLogic
+namespace TextAnalyzer
 {
     /// <summary>
     /// Responsible for removing empty lines.

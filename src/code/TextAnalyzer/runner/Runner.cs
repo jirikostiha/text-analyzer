@@ -1,4 +1,4 @@
-﻿namespace TextAnalyzer.BusinessLogic
+﻿namespace TextAnalyzer
 {
     using System;
     using System.Collections;
@@ -34,7 +34,7 @@
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException();
+                    throw new ArgumentNullException(nameof(TextProcessor));
                 }
                 _textProcessor = value;
             }
@@ -72,11 +72,12 @@
             // increase position index
             Position += length;
 
-            return Position < InputData.Length;
+            return Position <= InputData.Length;
         }
 
         public void Dispose()
         {
+            GC.SuppressFinalize(this);
         }
 
         public void Reset()

@@ -212,8 +212,6 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\formaters\ExceptionFormatter.cs" />
-    <Compile Include="Exceptions\formaters\IExceptionFormatter.cs" />
     <Compile Include="Exceptions\handlers\IExceptionHandler.cs" />
     <Compile Include="Exceptions\handlers\ProductionExceptionHandler.cs" />
     <Compile Include="Exceptions\helpers\ExceptionHelper.cs" />
@@ -241,6 +239,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CustomToolNamespace>TextAnalyzer.UI</CustomToolNamespace>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

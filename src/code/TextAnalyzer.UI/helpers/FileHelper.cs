@@ -1,4 +1,4 @@
-﻿namespace TextAnalyzer
+﻿namespace TextAnalyzer.UI
 {
     using System;
     using System.IO;
@@ -16,23 +16,23 @@
             }
             catch (PathTooLongException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (ArgumentException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (NotSupportedException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (SecurityException ex)
             {
-                throw new UIException(Properties.Resources.errUnsuficientRights, ex);
+                throw new UIException(Resources.errUnsuficientRights, ex);
             }
             catch (UnauthorizedAccessException ex)
             {
-                throw new UIException(Properties.Resources.errUnsuficientRights, ex);
+                throw new UIException(Resources.errUnsuficientRights, ex);
             }
 
             return file;
@@ -47,11 +47,11 @@
             }
             catch (FileNotFoundException ex)
             {
-                throw new UIException(Properties.Resources.errFileNotFound, ex);
+                throw new UIException(Resources.errFileNotFound, ex);
             }
             catch (IOException ex)
             {
-                throw new UIException(Properties.Resources.errCannotRefreshFileState, ex);
+                throw new UIException(Resources.errCannotRefreshFileState, ex);
             }
             return fileLength;
         }
@@ -65,35 +65,35 @@
             }
             catch (FileNotFoundException ex)
             {
-                throw new UIException(Properties.Resources.errFileNotFound, ex);
+                throw new UIException(Resources.errFileNotFound, ex);
             }
             catch (PathTooLongException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (DirectoryNotFoundException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (IOException ex)
             {
-                throw new UIException(Properties.Resources.errIOError, ex);
+                throw new UIException(Resources.errIOError, ex);
             }
             catch (ArgumentException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (NotSupportedException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (SecurityException ex)
             {
-                throw new UIException(Properties.Resources.errUnsuficientRights, ex);
+                throw new UIException(Resources.errUnsuficientRights, ex);
             }
             catch (UnauthorizedAccessException ex)
             {
-                throw new UIException(Properties.Resources.errUnsuficientRights, ex);
+                throw new UIException(Resources.errUnsuficientRights, ex);
             }
             return data;
         }
@@ -107,35 +107,35 @@
             }
             catch (FileNotFoundException ex)
             {
-                throw new UIException(Properties.Resources.errFileNotFound, ex);
+                throw new UIException(Resources.errFileNotFound, ex);
             }
             catch (PathTooLongException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (DirectoryNotFoundException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (IOException ex)
             {
-                throw new UIException(Properties.Resources.errIOError, ex);
+                throw new UIException(Resources.errIOError, ex);
             }
             catch (ArgumentException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (NotSupportedException ex)
             {
-                throw new UIException(Properties.Resources.errFilePathNotValid, ex);
+                throw new UIException(Resources.errFilePathNotValid, ex);
             }
             catch (SecurityException ex)
             {
-                throw new UIException(Properties.Resources.errUnsuficientRights, ex);
+                throw new UIException(Resources.errUnsuficientRights, ex);
             }
             catch (UnauthorizedAccessException ex)
             {
-                throw new UIException(Properties.Resources.errUnsuficientRights, ex);
+                throw new UIException(Resources.errUnsuficientRights, ex);
             }
 
             return fs;

@@ -1,4 +1,4 @@
-﻿namespace TextAnalyzer.BusinessLogic
+﻿namespace TextAnalyzer
 {
     using System.Globalization;
     using System.Text;

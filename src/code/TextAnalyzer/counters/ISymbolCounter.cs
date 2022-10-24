@@ -1,4 +1,4 @@
-namespace TextAnalyzer.BusinessLogic
+namespace TextAnalyzer
 {
     public interface ISymbolCounter : IResetable
     {

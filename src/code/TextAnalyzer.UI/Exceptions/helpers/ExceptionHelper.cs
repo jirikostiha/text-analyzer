@@ -1,4 +1,4 @@
-﻿namespace TextAnalyzer.Exceptions
+﻿namespace TextAnalyzer.UI.Exceptions
 {
     using System;
 

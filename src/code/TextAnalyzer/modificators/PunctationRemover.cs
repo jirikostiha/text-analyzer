@@ -1,4 +1,4 @@
-namespace TextAnalyzer.BusinessLogic
+namespace TextAnalyzer
 {
     /// <summary>
     /// Converts punctation to spaces.

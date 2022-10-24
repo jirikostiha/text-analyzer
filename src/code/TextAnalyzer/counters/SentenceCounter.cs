@@ -1,6 +1,5 @@
 namespace TextAnalyzer
 {
-    using TextAnalyzer.BusinessLogic;
     using System.Globalization;
 
     public class SentenceCounter : IPatternCounter

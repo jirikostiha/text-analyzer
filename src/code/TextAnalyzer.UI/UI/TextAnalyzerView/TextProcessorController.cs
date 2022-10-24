@@ -3,7 +3,6 @@
     using System;
     using System.ComponentModel;
     using System.IO;
-    using BusinessLogic;
     using Exceptions;
 
     public class TextProcessorController : IController<ITextProcessorView>
@@ -40,17 +39,16 @@
         /// <summary>
         /// Creates and configure text processor.
         /// </summary>
-        /// <returns>text processor</returns>
-        //NOTE: mozno udelat pomoci Factory
+        /// <returns> text processor </returns>
         private ITextProcessor CreateProcessor()
         {
             var analyzer = new Analyzer()
-                               {
-                                   LineBreakCounter = new LineBreakCounter(),
-                                   PrintableCharCounter = new PrintableCharCounter(),
-                                   WordCounter = new WordCounter(),
-                                   SentenceCounter = new SentenceCounter()
-                               };
+            {
+                LineBreakCounter = new LineBreakCounter(),
+                PrintableCharCounter = new PrintableCharCounter(),
+                WordCounter = new WordCounter(),
+                SentenceCounter = new SentenceCounter()
+            };
 
             var converter = new CharacterConverter();
             converter.Modificators.Add(new DiacriticRemover());
@@ -59,10 +57,10 @@
             converter.Modificators.Add(new SpaceRemover());
 
             var processor = new OnePassTextProcessor()
-                                {
-                                    Analyzer = analyzer,
-                                    Converter = converter
-                                };
+            {
+                Analyzer = analyzer,
+                Converter = converter
+            };
 
             return processor;
         }
@@ -91,13 +89,12 @@
 
             while (runner.MoveNext())
             {
-                //append to output file
-                using (var sw = File.AppendText(outputFilePath))
+                if (!string.IsNullOrEmpty(outputFilePath))
                 {
-                    sw.Write(runner.Current);
-                    sw.Flush();
+                    //append to output file
+                    File.AppendAllText(outputFilePath, runner.Current);
                 }
-
+                
                 // cancel if requested
                 if (worker.CancellationPending)
                 {
